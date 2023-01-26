@@ -15,7 +15,7 @@ body {
 	> div {
 		@include blocksCount(5) {
 			a {
-				color: #992a40
+				color: #992a40;
 			}
 		}
 		@include colorBlock(#46ac9b);
