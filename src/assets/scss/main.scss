@@ -1,13 +1,32 @@
+@import "vars";
+@import "extends";
+@import "mixins";
+
+
 body {
 	margin: 0;
 	padding: 0;
 }
-div {
-	width: 100px;
-	height: 40px;
-	padding: 5px;
+
+#main-block {
+	float: left;
+	margin-top: 20px;
+	
+	> div {
+		@include blocksCount(5) {
+			a {
+				color: #992a40
+			}
+		}
+		@include colorBlock(#46ac9b);
+	}
+}
+
+div:not(:last-child) {
+	@extend %block;
+
 	border-radius: 10px;
-	background-color: #994556;
+	background-color: $bg-color;
 	margin: 20px;
 	transition: 0.5s ease all;
 	color: black;
@@ -16,8 +35,7 @@ div {
 		height: 50px;
 		border-radius: 10px;
 		margin: 20px;
-		padding: 15px;
-		background-color: #449324;
+		@include padd(#449324, 55px)
 	}
 }
 
@@ -41,4 +59,16 @@ div {
 	animation-duration: 8s;
 	animation-name: flexer;
 	animation-iteration-count: infinite;
+}
+p {
+	@include font(25px, light);
+}
+a {
+	@include font;
+}
+
+@for $el from 1 through 3 {
+	ul:nth-child(3n + #{$el}) {
+		background-color: lighten($base-color, $el * 5%);
+	}
 }

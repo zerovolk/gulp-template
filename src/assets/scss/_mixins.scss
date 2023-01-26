@@ -1,0 +1,25 @@
+@mixin font($size: 50px, $fontWeight: bold) {
+    font-size: $size;
+    color: $color-text;
+    font-weight: $fontWeight;
+}
+@mixin padd($bg, $padd...) {
+    padding: $padd;
+    background-color: $bg;
+}
+@mixin blocksCount($blocks) {
+    margin: 20px;
+    padding: 20px;
+    float: left;
+    height: 100px;
+    @content;
+    @if($blocks > 5) {
+        width: 400px;
+    }
+    @else {
+        width: 100px;
+    }
+}
+@mixin colorBlock($color) {
+    background-color: darken($color, 25%);
+}

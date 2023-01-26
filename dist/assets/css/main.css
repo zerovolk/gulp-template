@@ -1,12 +1,33 @@
+div:not(:last-child) {
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+}
+
 body {
     margin: 0;
     padding: 0;
 }
 
-div {
+#main-block {
+    float: left;
+    margin-top: 20px;
+}
+
+#main-block > div {
+    margin: 20px;
+    padding: 20px;
+    float: left;
+    height: 100px;
     width: 100px;
-    height: 40px;
-    padding: 5px;
+    background-color: #215149;
+}
+
+#main-block > div a {
+    color: #992a40;
+}
+
+div:not(:last-child) {
     border-radius: 10px;
     background-color: #994556;
     margin: 20px;
@@ -14,12 +35,12 @@ div {
     color: black;
 }
 
-div.box {
+div:not(:last-child).box {
     width: 50px;
     height: 50px;
     border-radius: 10px;
     margin: 20px;
-    padding: 15px;
+    padding: 55px;
     background-color: #449324;
 }
 
@@ -51,4 +72,28 @@ div.box {
     animation-duration: 8s;
     animation-name: flexer;
     animation-iteration-count: infinite;
+}
+
+p {
+    font-size: 25px;
+    color: #000;
+    font-weight: light;
+}
+
+a {
+    font-size: 50px;
+    color: #000;
+    font-weight: bold;
+}
+
+ul:nth-child(3n+1) {
+    background-color: #3e851b;
+}
+
+ul:nth-child(3n+2) {
+    background-color: #489a20;
+}
+
+ul:nth-child(3n+3) {
+    background-color: #51af24;
 }
