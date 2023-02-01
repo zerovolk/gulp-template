@@ -1,74 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap');
 @import "vars";
 @import "extends";
 @import "mixins";
 
-
-body {
+* {
 	margin: 0;
 	padding: 0;
 }
+body {
+	font-family: 'Inter', sans-serif;
+	font-size: 22px;
+	background: radial-gradient(40.99% 129.55% at 27.84% 85.32%, #424242 0%, #424242 0.01%, #242424 100%);
+	background-size: 1920px 1080px;
+	background-repeat: no-repeat;
+	overflow: hidden;
 
-#main-block {
-	float: left;
-	margin-top: 20px;
-	
-	> div {
-		@include blocksCount(5) {
-			a {
-				color: #992a40;
+	.background {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+
+		.background__circle {
+			border-radius: 50%;
+			background-blend-mode: darken, normal;
+			filter: blur(1.25862px);
+			position: absolute;
+			
+			&#background-cirle1 {
+				background: radial-gradient(76.24% 71.26% at 31.61% 28.74%, #B6B7B9 0%, #6F7173 67.27%, #212122 100%);
+				box-shadow: 0px 176.207px 377.586px 5.03448px rgba(169, 180, 203, 0.1), inset 22.6552px 40.2759px 70.4828px rgba(255, 255, 255, 0.4);
+				transform: rotate(20.81deg);
+				left: -95px;
+				top: -166px;
+				width: 467px;
+				height: 467px;
+			}
+
+			&#background-cirle2 {
+				left: -86px;
+				top: 373px;
+				background: radial-gradient(76.24% 71.26% at 31.61% 28.74%, #979797 0%, #5E5E5F 67.27%, #212122 100%);
+				width: 802.07px;
+				height: 802.07px;
+				box-shadow: 0px 176.207px 377.586px 5.03448px rgba(169, 180, 203, 0.1), inset 22.6552px 40.2759px 70.4828px rgba(255, 255, 255, 0.4);
+				transform: rotate(-5.78deg);
 			}
 		}
-		@include colorBlock(#46ac9b);
+	}
+	.main {
+		width: 50%;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		// border: 2px solid red;
+		position: absolute;
+		top: 200px;
+		left: 200px;
+
+		.header {
+			background-image: url(../images/header.svg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			width: 690px;
+			height: 230px;
+		}
+		.menu {
+			list-style: none;
+			width: 650px;
+
+			.menu__item:first-child {
+				margin-left: 50px;
+			}
+			.menu__item {
+				float: left;
+				margin: 0 2em 0 -.5em;
+				// padding: 0 .5em 0 .5em;
+
+				.button {
+					padding: 8px 16px;
+					line-height: 32px;
+					background: #FFFFFF;
+					border-radius: 32px;
+					border: none;
+					position: relative;
+					
+	
+					&> svg {
+						display: inline-block;
+						vertical-align: middle;
+						width: 30px;
+						height: 30px;
+						margin-right: 0.25rem;
+					}
+				}
+			}
+			.menu__item:last-child {
+				margin: 0 0 0 -.5em;
+			}
+			
+		}
+		.sign {
+			display: flex;
+			margin-top: 161px;
+			.sign__picture {
+				width: 260px;
+				height: 376px;
+				background: url(../images/sign.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			.sign__credits {
+				align-self: flex-end;
+				color: #FFFFFF;
+				margin-bottom: 85px;
+				font-size: 32px;
+				.sign__name {
+					font-weight: 500;
+				}
+				.sign__inst {
+					font-weight: 300;
+				}
+				.sign__watermark {
+					font-weight: 300;
+					color: #c2c2c2;
+				}
+			}
+		}
 	}
 }
 
-div:not(:last-child) {
-	@extend %block;
 
-	border-radius: 10px;
-	background-color: $bg-color;
-	margin: 20px;
-	transition: 0.5s ease all;
-	color: black;
-	&.box {
-		width: 50px;
-		height: 50px;
-		border-radius: 10px;
-		margin: 20px;
-		@include padd(#449324, 55px)
-	}
+@media (max-width: 1470px) {
+
 }
 
-@keyframes flexer {
-	0% {
-		width: 150px;
-	}
-	50% {
-		width: 1000px;
-		height: 30px;
-	}
-	75% {transform: translateY(400px);}
-	90% {width: 160px;}
-}
-.shadow {
-	margin: 0 auto;
-	width: 150px;
-	height: 80px;
-	background-color: #992a40;
-	border-radius: 10px;
-	animation-duration: 8s;
-	animation-name: flexer;
-	animation-iteration-count: infinite;
-}
-p {
-	@include font(25px, light);
-}
-a {
-	@include font;
-}
+// #main-block {
+// 	float: left;
+// 	margin-top: 20px;
+	
+// 	> div {
+// 		@include blocksCount(5) {
+// 			a {
+// 				color: #992a40;
+// 			}
+// 		}
+// 		@include colorBlock(#46ac9b);
+// 	}
+// }
 
-@for $el from 1 through 3 {
-	ul:nth-child(3n + #{$el}) {
-		background-color: lighten($base-color, $el * 5%);
-	}
-}
+// div:not(:last-child) {
+// 	@extend %block;
+
+// 	border-radius: 10px;
+// 	background-color: $bg-color;
+// 	margin: 20px;
+// 	transition: 0.5s ease all;
+// 	color: black;
+// 	&.box {
+// 		width: 50px;
+// 		height: 50px;
+// 		border-radius: 10px;
+// 		margin: 20px;
+// 		@include padd(#449324, 55px)
+// 	}
+// }
+
+// @keyframes flexer {
+// 	0% {
+// 		width: 150px;
+// 	}
+// 	50% {
+// 		width: 1000px;
+// 		height: 30px;
+// 	}
+// 	75% {transform: translateY(400px);}
+// 	90% {width: 160px;}
+// }
+// .shadow {
+// 	margin: 0 auto;
+// 	width: 150px;
+// 	height: 80px;
+// 	background-color: #992a40;
+// 	border-radius: 10px;
+// 	animation-duration: 8s;
+// 	animation-name: flexer;
+// 	animation-iteration-count: infinite;
+// }
+// p {
+// 	@include font(25px, light);
+// }
+// a {
+// 	@include font;
+// }
+
+// @for $el from 1 through 3 {
+// 	ul:nth-child(3n + #{$el}) {
+// 		background-color: lighten($base-color, $el * 5%);
+// 	}
+// }
